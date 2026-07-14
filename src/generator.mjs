@@ -80,7 +80,8 @@ function corsHeaders(request, env) {
   const origin = request.headers.get("origin")?.replace(/\/$/, "");
   if (!origin) return { vary: "Origin" };
   const allowed = allowedOrigins(env);
-  if (!allowed.includes("*") && !allowed.includes(origin)) return null;
+  const requestOrigin = new URL(request.url).origin;
+  if (origin !== requestOrigin && !allowed.includes("*") && !allowed.includes(origin)) return null;
   return {
     "access-control-allow-origin": allowed.includes("*") ? "*" : origin,
     "access-control-allow-methods": "POST, OPTIONS",
@@ -217,4 +218,3 @@ export async function handleGenerate(request, options = {}) {
       : { error: "The AI challenge did not clear review. Please forge another.", code: "GENERATION_FAILED" }, authFailed ? 503 : 502, cors);
   }
 }
-

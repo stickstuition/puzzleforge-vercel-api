@@ -76,6 +76,23 @@ test("unknown browser origins are rejected", async () => {
   assert.equal(response.status, 403);
 });
 
+test("the standalone Vercel page may call its same-origin API", async () => {
+  const request = new Request("https://puzzleforge-vercel-api.vercel.app/api/generate", {
+    method: "POST",
+    headers: { origin: "https://puzzleforge-vercel-api.vercel.app", "content-type": "application/json" },
+    body: "{}",
+  });
+  const fetchImpl = async () => Response.json({
+    choices: [{ message: { content: JSON.stringify(challenge) } }],
+  });
+  const response = await handleGenerate(request, {
+    env: { OPENAI_API_KEY: "test-only", PUZZLEFORGE_ALLOWED_ORIGINS: "https://stickstuition.com" },
+    fetchImpl,
+  });
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("access-control-allow-origin"), "https://puzzleforge-vercel-api.vercel.app");
+});
+
 test("successful generation preserves the existing frontend contract", async () => {
   const request = new Request("https://api.example/api/generate", {
     method: "POST",
