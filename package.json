@@ -1,0 +1,14 @@
+{
+  "name": "puzzleforge-vercel-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check api/generate.mjs && node --check src/generator.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
+
