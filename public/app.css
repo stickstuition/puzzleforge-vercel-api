@@ -1,0 +1,35 @@
+.pf-paper,
+.pf-question-main,
+.pf-answer-form,
+.pf-options,
+.pf-options label,
+.pf-options span {
+  color: #20212a;
+}
+
+.pf-options span {
+  min-height: 3rem;
+  border: 1px solid #c9c4b8;
+  background: #ffffff;
+  opacity: 1;
+}
+
+.pf-options b {
+  color: #284f9e;
+}
+
+.pf-options input:checked + span {
+  color: #20212a;
+  background: #e8eef7;
+}
+
+.pf-diagram img {
+  width: min(100%, 900px);
+  background: #fffdf7;
+}
+
+@media (max-width: 760px) {
+  .pf-options {
+    grid-template-columns: 1fr;
+  }
+}
