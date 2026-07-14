@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import generateRoute from "../api/generate.mjs";
+import healthRoute from "../api/health.mjs";
 import { handleGenerate, makeDiagramDataUri, validateChallenge } from "../src/generator.mjs";
 
 const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520"><rect width="900" height="520" fill="#fffaf0"/><line x1="100" y1="100" x2="800" y2="400" stroke="#111" stroke-width="8"/><text x="420" y="260" font-size="48">12</text></svg>';
@@ -29,6 +31,15 @@ const challenge = {
   concepts,
   visualReview: { pass: true, mathematicallyFaithful: true, legible: true, issues: [] },
 };
+
+test("Vercel route wrappers expose Web Handler fetch methods", async () => {
+  assert.equal(typeof generateRoute.fetch, "function");
+  assert.equal(typeof healthRoute.fetch, "function");
+  const response = await healthRoute.fetch(new Request("https://api.example/api/health"));
+  const body = await response.json();
+  assert.equal(response.status, 200);
+  assert.equal(body.ok, true);
+});
 
 test("healthier SVG is converted while active content is rejected", () => {
   assert.match(makeDiagramDataUri(svg), /^data:image\/svg\+xml;base64,/);
@@ -86,4 +97,3 @@ test("successful generation preserves the existing frontend contract", async () 
   assert.equal(body.diagramSvg, undefined);
   assert.equal(body.audit.concepts.length, 5);
 });
-
