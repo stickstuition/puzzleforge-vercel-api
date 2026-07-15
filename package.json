@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "check": "node --check api/generate.mjs && node --check api/health.mjs && node --check src/generator.mjs"
+    "check": "node --check api/generate.mjs && node --check api/health.mjs && node --check src/generator.mjs && node --check public/app.js"
   },
   "engines": {
     "node": ">=20"

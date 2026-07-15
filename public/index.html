@@ -3,106 +3,141 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#c6001c">
-    <title>PuzzleForge | Sticks Tuition GameLab</title>
-    <meta name="description" content="Forge original, reviewed visual maths challenges with verified answers and worked solutions.">
-    <link rel="icon" type="image/png" href="https://stickstuition.com/logos/C6001C.png">
-    <link rel="stylesheet" href="https://stickstuition.com/styles.css">
-    <link rel="stylesheet" href="https://stickstuition.com/games/puzzleforge/puzzleforge.css">
-    <link rel="stylesheet" href="https://stickstuition.com/games/puzzleforge/puzzleforge-a11y.css">
+    <meta name="theme-color" content="#101513">
+    <meta name="description" content="Original visual mathematics challenges, independently solved and reviewed before publication.">
+    <title>PuzzleForge — Visual Mathematics Lab</title>
     <link rel="stylesheet" href="/app.css">
+    <script src="/app.js" defer></script>
   </head>
-  <body class="pf-body">
-    <header class="site-header">
-      <div class="nav-shell">
-        <a class="brand" href="https://stickstuition.com/"><span class="brand-mark">ST</span><span>STICKS TUITION<small>Make Maths Stick</small></span></a>
-        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle><span></span><span></span><span></span></button>
-        <nav class="nav-links" aria-label="Site"><a href="https://stickstuition.com/">Home</a><a href="https://stickstuition.com/our-lessons.html">Our Lessons</a><a class="games-link" href="https://stickstuition.com/maths-games.html" aria-current="page">Game Lab</a><a href="https://stickstuition.com/pricing-and-packages.html">Pricing</a><a href="https://stickstuition.com/login.html">Login</a></nav>
-        <a class="nav-cta" href="https://stickstuition.com/maths-games.html">All games</a>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="/" aria-label="PuzzleForge home">
+        <span class="wordmark__stamp" aria-hidden="true">PF</span>
+        <span><b>PuzzleForge</b><small>Visual Mathematics Lab</small></span>
+      </a>
+      <div class="topbar__right">
+        <span class="service" data-ui="service"><i></i>Checking forge</span>
+        <a class="exit-link" href="https://stickstuition.com/maths-games.html">GameLab ↗</a>
       </div>
     </header>
 
-    <main class="pf-app" data-pf-app>
-      <section class="pf-hero" aria-labelledby="pf-title">
-        <div class="pf-hero-copy">
-          <p class="pf-kicker">Sticks Tuition GameLab</p>
-          <h1 id="pf-title">Puzzle<span>Forge</span></h1>
-          <p class="pf-intro">One original visual maths challenge. Eight competing concepts. Three independently checked finalists. Only the strongest reaches you.</p>
-        </div>
+    <main class="app" data-app>
+      <section class="setup" data-screen="setup">
+        <div class="setup__main">
+          <p class="eyebrow">Issue No. 01 · Original competition mathematics</p>
+          <h1>A picture.<br><em>One hidden idea.</em></h1>
+          <p class="lede">PuzzleForge starts with a visual situation, tests eight possible concepts, and publishes only the one that survives independent solving.</p>
 
-        <div class="pf-forge-controls">
-          <fieldset class="pf-levels">
-            <legend>Choose a level</legend>
-            <label><input type="radio" name="pf-level" value="junior" checked><span>Junior<small>One satisfying leap</small></span></label>
-            <label><input type="radio" name="pf-level" value="intermediate"><span>Intermediate<small>Connect hidden facts</small></span></label>
-            <label><input type="radio" name="pf-level" value="senior"><span>Senior<small>Layered constraints</small></span></label>
-          </fieldset>
-          <label class="pf-category-label" for="pf-category">Challenge family</label>
-          <select id="pf-category" data-pf-category>
-            <option value="mixed">Surprise me</option>
-            <option value="visual-geometry">Visual geometry &amp; measurement</option>
-            <option value="number-structures">Combinatorial patterns &amp; number structures</option>
-            <option value="systems">Systems, processes &amp; probability</option>
-          </select>
-          <button class="pf-generate" type="button" data-pf-generate><span>Forge a challenge</span><b aria-hidden="true">→</b></button>
-          <p class="pf-generator-status" data-pf-generator-status aria-live="polite">Ready to test eight fresh visual concepts.</p>
-        </div>
-      </section>
+          <div class="config">
+            <section class="config__section" aria-labelledby="level-title">
+              <div class="section-heading"><span>01</span><div><h2 id="level-title">Choose the paper</h2><p>How deeply should the idea be hidden?</p></div></div>
+              <div class="level-grid" role="radiogroup" aria-label="Difficulty level">
+                <button class="level-card is-selected" type="button" role="radio" aria-checked="true" data-level="junior">
+                  <b>Junior</b><span>One satisfying leap</span><small>Years 5–7</small>
+                </button>
+                <button class="level-card" type="button" role="radio" aria-checked="false" data-level="intermediate">
+                  <b>Intermediate</b><span>Connect two visible facts</span><small>Years 7–9</small>
+                </button>
+                <button class="level-card" type="button" role="radio" aria-checked="false" data-level="senior">
+                  <b>Senior</b><span>A deeper organising idea</span><small>Years 9–11</small>
+                </button>
+              </div>
+            </section>
 
-      <section class="pf-loading" data-pf-loading hidden aria-live="polite" aria-label="Building challenge">
-        <div class="pf-anvil" aria-hidden="true"><span></span></div>
-        <div>
-          <p class="pf-kicker">Quality takes a moment</p>
-          <h2 data-pf-loading-title>Constructing challenge</h2>
-          <ol data-pf-stages>
-            <li>Inventing eight visual situations</li><li>Scoring originality and aha factor</li><li>Independently solving three finalists</li><li>Typesetting the diagram</li><li>Checking uniqueness</li><li>Preparing the final question</li>
-          </ol>
-          <p class="pf-wait-note" data-pf-wait-note hidden>This is taking longer than usual. The reviewers are still working.</p>
-          <button class="pf-cancel" type="button" data-pf-cancel>Cancel</button>
-        </div>
-      </section>
+            <section class="config__section" aria-labelledby="family-title">
+              <div class="section-heading"><span>02</span><div><h2 id="family-title">Set the visual territory</h2><p>The picture leads; the mathematics follows.</p></div></div>
+              <label class="select-wrap">
+                <span>Challenge family</span>
+                <select data-ui="category">
+                  <option value="mixed">Curator’s choice</option>
+                  <option value="visual-geometry">Shape, space &amp; transformation</option>
+                  <option value="number-structures">Patterns, parity &amp; counting</option>
+                  <option value="systems">Maps, systems &amp; probability</option>
+                </select>
+              </label>
+            </section>
 
-      <section class="pf-workspace" data-pf-workspace hidden>
-        <article class="pf-paper" aria-labelledby="pf-question-prompt">
-          <header class="pf-paper-meta"><span data-pf-level-badge>Junior</span><span data-pf-category-badge>Visual geometry</span><small data-pf-quality-badge>Reviewed</small></header>
-          <div class="pf-question-row">
-            <span class="pf-question-number" data-pf-number>1.</span>
-            <div class="pf-question-main">
-              <h2 id="pf-question-prompt" data-pf-prompt>Question prompt</h2>
-              <figure class="pf-diagram" data-pf-diagram aria-label="Question diagram"></figure>
-              <form class="pf-answer-form" data-pf-answer-form novalidate>
-                <fieldset class="pf-options" data-pf-options><legend>Select an answer</legend></fieldset>
-                <label class="pf-number-answer" data-pf-number-wrap hidden for="pf-number-answer">Your answer<input id="pf-number-answer" data-pf-number-answer inputmode="decimal" autocomplete="off"></label>
-                <div class="pf-answer-actions"><button class="pf-check" type="submit">Check answer</button><button class="pf-secondary" type="button" data-pf-hint-button>Hint</button><button class="pf-secondary" type="button" data-pf-solution-button disabled>Solution</button></div>
-              </form>
-              <p class="pf-feedback" data-pf-feedback aria-live="assertive">Use every detail carefully.</p>
-              <aside class="pf-hint" data-pf-hint hidden><strong>A small nudge</strong><p></p></aside>
-              <section class="pf-solution" data-pf-solution hidden><header><h3>Worked solution</h3><button type="button" data-pf-solution-close aria-label="Close solution">×</button></header><div data-pf-solution-steps></div></section>
-            </div>
+            <button class="forge-button" type="button" data-action="forge">
+              <span><small>Begin five-stage review</small>Forge a new puzzle</span>
+              <b aria-hidden="true">→</b>
+            </button>
+            <p class="setup-status" data-ui="setup-status" aria-live="polite">Ready. No question is accepted without a unique answer.</p>
           </div>
-        </article>
-        <div class="pf-outside-controls"><button type="button" data-pf-another>Forge another</button><button type="button" data-pf-review-toggle>Review evidence</button></div>
+        </div>
+
+        <aside class="process" aria-label="PuzzleForge review process">
+          <div class="process__header"><span>THE FORGE</span><small>8 candidates · 3 finalists · 1 question</small></div>
+          <div class="process__diagram" aria-hidden="true">
+            <div class="candidate-cloud">
+              <i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i>
+            </div>
+            <span class="process-arrow">↓</span>
+            <div class="finalists"><i>A</i><i>B</i><i>C</i></div>
+            <span class="process-arrow">↓</span>
+            <div class="winner">1</div>
+          </div>
+          <ol class="process__rules">
+            <li><b>Picture first</b><span>No equations or curriculum prompts.</span></li>
+            <li><b>One idea only</b><span>The solution turns on a single insight.</span></li>
+            <li><b>Blind verification</b><span>A separate examiner derives the answer.</span></li>
+          </ol>
+        </aside>
       </section>
 
-      <section class="pf-empty" data-pf-empty><div aria-hidden="true">8→3→1</div><h2>Nothing routine leaves the forge.</h2><p>Every concept begins as a picture. The finalists are independently solved, scored, and checked for uniqueness.</p></section>
+      <section class="loading" data-screen="loading" hidden aria-live="polite">
+        <div class="press" aria-hidden="true"><div class="press__plate">PF</div><div class="press__paper"></div></div>
+        <div class="loading__copy">
+          <p class="eyebrow">The proofing press is running</p>
+          <h1 data-ui="loading-title">Inventing visual situations</h1>
+          <p data-ui="loading-detail">Eight different pictures are entering the forge.</p>
+          <ol class="stage-list" data-ui="stages">
+            <li class="is-active">Invent eight visual concepts</li>
+            <li>Score originality and aha factor</li>
+            <li>Blind-solve three finalists</li>
+            <li>Typeset the competition diagram</li>
+            <li>Verify one unique answer</li>
+          </ol>
+          <div class="loading__actions">
+            <span data-ui="elapsed">00:00</span>
+            <button type="button" data-action="cancel">Cancel generation</button>
+          </div>
+        </div>
+      </section>
 
-      <section class="pf-review" data-pf-review hidden aria-labelledby="pf-review-title">
-        <header><p class="pf-kicker">Developer review gallery</p><h2 id="pf-review-title">Why this question won</h2><button type="button" data-pf-review-close aria-label="Close review gallery">×</button></header>
-        <div data-pf-review-content></div>
+      <section class="result" data-screen="result" hidden>
+        <header class="result-toolbar">
+          <div><span class="result-mark">PF</span><p><b>Competition proof</b><small data-ui="result-meta">Junior · Curator’s choice</small></p></div>
+          <div class="result-toolbar__actions">
+            <button type="button" data-action="review">Review evidence</button>
+            <button class="primary-small" type="button" data-action="another">Forge another</button>
+          </div>
+        </header>
+
+        <article class="paper">
+          <div class="paper__rule"><span data-ui="quality">Independently verified</span><span data-ui="question-number">Question 1</span></div>
+          <h1 data-ui="prompt">Question prompt</h1>
+          <figure class="diagram"><img data-ui="diagram" alt=""></figure>
+          <form class="answer-form" data-ui="answer-form">
+            <fieldset class="answers" data-ui="answers"><legend>Choose one answer</legend></fieldset>
+            <div class="answer-actions">
+              <button class="check-button" type="submit">Check answer</button>
+              <button type="button" data-action="hint">Show hint</button>
+              <button type="button" data-action="solution" disabled>Worked solution</button>
+            </div>
+          </form>
+          <p class="feedback" data-ui="feedback" aria-live="assertive">Choose the answer supported by both the words and the diagram.</p>
+          <aside class="reveal" data-ui="hint" hidden><b>A small nudge</b><p></p></aside>
+          <section class="solution" data-ui="solution" hidden><div class="solution__head"><h2>Worked solution</h2><button type="button" data-action="close-solution">Close</button></div><ol data-ui="solution-steps"></ol></section>
+        </article>
       </section>
     </main>
 
-    <script src="https://stickstuition.com/site.js"></script>
-    <script>
-      const puzzleForgeFetch = window.fetch.bind(window);
-      window.fetch = (resource, options) => {
-        const url = typeof resource === "string" ? resource : resource?.url;
-        if (url === "/.netlify/functions/puzzleforge-generate") {
-          return puzzleForgeFetch("/api/generate", options);
-        }
-        return puzzleForgeFetch(resource, options);
-      };
-    </script>
-    <script src="https://stickstuition.com/games/puzzleforge/puzzleforge-app.js"></script>
+    <dialog class="review-dialog" data-ui="review-dialog">
+      <header><div><p class="eyebrow">Editorial evidence</p><h2>Why this question survived</h2></div><button type="button" data-action="close-review" aria-label="Close review">×</button></header>
+      <div class="review-summary" data-ui="review-summary"></div>
+      <div class="review-grid" data-ui="review-grid"></div>
+    </dialog>
+
+    <footer><span>PuzzleForge</span><p>Original questions · Server-side AI · No reproduced competition material</p></footer>
   </body>
 </html>
